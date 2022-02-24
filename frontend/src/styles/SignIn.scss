@@ -1,0 +1,80 @@
+@import "./variables";
+.signinContainer {
+  display: flex;
+  flex-direction: column;
+  .signinMenu {
+    background-color: $background-white;
+    width: 342px;
+    margin-top: 80px;
+    margin-left: 30px;
+    border: 1px solid $border-color-grey;
+    justify-content: center;
+    height: 300px;
+    .logo {
+      margin: 30px auto;
+      display: block;
+      width: 250px;
+    }
+    .signInForm {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      button {
+        height: 30px;
+        width: 263px;
+        margin: 10px auto;
+        background-color: #b2dffc;
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      .forgotPassword {
+        margin: 5px auto;
+        font-size: 12px;
+        color: #00376b;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .signIn {
+    background-color: $background-white;
+    width: 342px;
+    margin-top: 20px;
+    margin-left: 30px;
+    border: 1px solid $border-color-grey;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    .signInText {
+      font-size: 14px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .copyright {
+    color: $link_color;
+    margin-left: 30px;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+input {
+  height: 30px;
+  width: 255px;
+  margin: 3px auto;
+  font-size: 11px;
+  padding-left: 2%;
+  border: 1px solid $border-color-grey;
+  border-radius: 3px;
+  background-color: $background-grey;
+}

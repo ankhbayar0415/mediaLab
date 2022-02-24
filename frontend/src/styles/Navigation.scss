@@ -1,0 +1,60 @@
+@import "./variables";
+
+.navigation {
+  position: fixed;
+  top: 0;
+  z-index: 2;
+  background-color: $background-white;
+  width: 100%;
+  border-bottom: 1px solid $border-color-grey;
+
+  .navContainer {
+    padding: 1em 0 0.9em 0;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    .logo {
+      padding: 0 1em;
+      width: 135px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .search {
+      border: 1px solid $border-color-grey;
+      border-radius: 8px;
+      background-color: $background-grey;
+      width: 250px;
+      height: 30px;
+      min-width: 125px;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      margin-right: 10px;
+
+      .searchIcon {
+        width: 10px;
+        opacity: 0.4;
+        margin-right: 0.3em;
+        margin-left: 0.5em;
+      }
+
+      .searchText {
+        color: $font-color-secondary;
+        font-size: 0.85em;
+        font-weight: 300;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .search {
+    display: none !important;
+  }
+}

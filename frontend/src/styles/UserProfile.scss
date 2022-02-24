@@ -1,0 +1,82 @@
+@import "./variables";
+
+main {
+  background-color: $background-grey;
+  margin-top: 60px;
+
+  .container-userprofile {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1000px;
+
+    .profileHeader {
+      margin: 15px;
+      display: flex;
+      justify-content: left;
+      width: 800px;
+      align-items: center;
+      .pPic {
+        margin-top: 15px;
+      }
+      .userInfo {
+        width: 390px;
+        margin-left: 80px;
+        .infoHeader {
+          margin: 25px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .userName {
+            font-size: 24px;
+          }
+          button {
+            border: 1px solid $border-color-grey;
+            padding: 5px 15px 5px 15px;
+            background-color: $background-grey;
+            border-radius: 3px;
+            font-weight: bold;
+            &:hover {
+              cursor: pointer;
+            }
+          }
+          .icon:hover {
+            cursor: pointer;
+          }
+        }
+        .insight {
+          margin: 25px;
+          display: flex;
+          justify-content: space-between;
+          .likes {
+            color: rgb(206, 2, 2);
+          }
+        }
+        .nameBio {
+          margin: 25px;
+          .fullName {
+            font-weight: 600;
+          }
+          .bio {
+            font-size: 15px;
+            margin-top: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+a:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+  .userInfo {
+    justify-content: center !important;
+    margin-left: 40px !important;
+  }
+  .pPic {
+    display: none;
+  }
+}

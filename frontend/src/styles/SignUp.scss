@@ -1,0 +1,83 @@
+@import "./variables";
+
+.listSignUp {
+  display: flex;
+  flex-direction: column;
+  .signUpMenu {
+    background-color: $background-white;
+    width: 342px;
+    margin-left: 30px;
+    border: 1px solid $border-color-grey;
+    justify-content: center;
+    height: 440px;
+    .logo {
+      margin: 30px auto;
+      display: block;
+      width: 250px;
+    }
+    .descContainer {
+      width: 200px;
+      margin: 0 auto;
+      .descText {
+        text-align: center;
+        font-size: 16px;
+        color: $font-color-secondary;
+      }
+    }
+    .signUpForm {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      button {
+        height: 30px;
+        width: 263px;
+        margin: 10px auto;
+        background-color: #b2dffc;
+        border: 0;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .signUp {
+    background-color: $background-white;
+    width: 342px;
+    margin-top: 20px;
+    margin-left: 30px;
+    border: 1px solid $border-color-grey;
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    .signUpText {
+      font-size: 14px;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .copyright {
+    color: $link_color;
+    margin-left: 30px;
+    font-size: 12px;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+input {
+  height: 30px;
+  width: 255px;
+  margin: 3px auto;
+  font-size: 11px;
+  padding-left: 2%;
+  border: 1px solid $border-color-grey;
+  border-radius: 3px;
+  background-color: $background-grey;
+}
