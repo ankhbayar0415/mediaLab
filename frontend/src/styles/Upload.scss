@@ -1,0 +1,86 @@
+@import "./variables";
+
+main {
+  background-color: $background-grey;
+  margin-top: 60px;
+
+  .container-upload {
+    display: flex;
+    justify-content: center;
+    top: 48px;
+    margin: 0 auto;
+    max-width: 60%;
+    min-width: 600px !important;
+
+    .upload-box {
+      margin: 45px auto;
+      border: 1px solid $border-color-grey;
+      border-radius: 10px;
+      height: 700px;
+      width: 100%;
+      background-color: $background-white;
+      .upload-header {
+        display: flex;
+        justify-content: center;
+        height: 40px;
+        width: 100%;
+        border-bottom: 1px solid $border-color-grey;
+        .upload-header-content {
+          color: white;
+          height: 40px;
+          width: 95%;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          .backButton {
+            :hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+      .upload-content {
+        display: flex;
+        .upload-pic {
+          border-right: 1px solid $border-color-grey;
+          width: 60%;
+          height: 660px;
+          display: flex;
+          align-items: center;
+          .upload-icon {
+            height: 30%;
+            width: 50%;
+          }
+        }
+        .upload-desc {
+          width: 40%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          .upload-desc-header {
+            color: white;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $border-color-grey;
+            .propic {
+              margin: 10px 15px;
+              width: 35px;
+              height: 35px;
+              border-radius: 35px;
+            }
+          }
+          .upload-desc-desc {
+            color: white;
+            width: 90%;
+            margin-top: 10px;
+            background-color: $background-white;
+            border: 1px solid $border-color-grey;
+            border-radius: 10px;
+            padding: 10px;
+          }
+        }
+      }
+    }
+  }
+}

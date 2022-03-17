@@ -7,6 +7,7 @@
   background-color: $background-white;
   width: 100%;
   border-bottom: 1px solid $border-color-grey;
+  height: 60px;
 
   .navContainer {
     padding: 1em 0 0.9em 0;
@@ -19,12 +20,15 @@
     .logo {
       padding: 0 1em;
       width: 135px;
+      height: 27px;
 
       &:hover {
         cursor: pointer;
       }
     }
-
+    .icon {
+      padding: 0 5px;
+    }
     .search {
       border: 1px solid $border-color-grey;
       border-radius: 8px;

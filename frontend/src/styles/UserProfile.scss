@@ -7,14 +7,16 @@ main {
   .container-userprofile {
     display: flex;
     justify-content: center;
+    top: 48px;
     margin: 0 auto;
-    max-width: 1000px;
+    max-width: 70%;
+    min-width: 950px;
 
     .profileHeader {
       margin: 15px;
       display: flex;
-      justify-content: left;
-      width: 800px;
+      justify-content: center;
+      width: 100%;
       align-items: center;
       .pPic {
         margin-top: 15px;
@@ -29,13 +31,15 @@ main {
           align-items: center;
           .userName {
             font-size: 24px;
+            color: white;
           }
           button {
-            border: 1px solid $border-color-grey;
+            border: 1px solid white;
             padding: 5px 15px 5px 15px;
             background-color: $background-grey;
             border-radius: 3px;
             font-weight: bold;
+            color: white;
             &:hover {
               cursor: pointer;
             }
@@ -49,11 +53,12 @@ main {
           display: flex;
           justify-content: space-between;
           .likes {
-            color: rgb(206, 2, 2);
+            color: white;
           }
         }
         .nameBio {
           margin: 25px;
+          color: white;
           .fullName {
             font-weight: 600;
           }
@@ -71,10 +76,10 @@ a:hover {
   cursor: pointer;
 }
 
-@media only screen and (max-width: 700px) {
+@media only screen and (max-width: 600px) {
   .userInfo {
     justify-content: center !important;
-    margin-left: 40px !important;
+    margin-left: 0 !important;
   }
   .pPic {
     display: none;

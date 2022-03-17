@@ -30,10 +30,19 @@
       flex-direction: column;
       width: 100%;
       button {
+        .uploadProfilePic {
+          background-color: black;
+        }
         height: 30px;
         width: 263px;
         margin: 10px auto;
-        background-color: #b2dffc;
+        background: linear-gradient(
+          200deg,
+          $gradient-one 25%,
+          $gradient-two 50%,
+          $gradient-three 75%,
+          $gradient-four 100%
+        );
         border: 0;
         border-radius: 5px;
         color: white;
@@ -57,13 +66,14 @@
     align-items: center;
     .signUpText {
       font-size: 14px;
+      color: #ffffff;
       &:hover {
         cursor: pointer;
       }
     }
   }
   .copyright {
-    color: $link_color;
+    color: $link-text-color;
     margin-left: 30px;
     font-size: 12px;
     margin-top: 10px;
@@ -79,5 +89,6 @@ input {
   padding-left: 2%;
   border: 1px solid $border-color-grey;
   border-radius: 3px;
-  background-color: $background-grey;
+  background-color: $background-input;
+  color: $font-color-input;
 }

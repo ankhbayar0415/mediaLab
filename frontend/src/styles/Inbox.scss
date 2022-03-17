@@ -1,0 +1,33 @@
+@import "./variables";
+
+main {
+  background-color: $background-grey;
+  margin-top: 60px;
+
+  .container-messenger {
+    display: flex;
+    justify-content: center;
+    top: 48px;
+    margin: 0 auto;
+    max-width: 60%;
+    min-width: 500px !important;
+    .messageMenu {
+      margin: 45px auto;
+      border: 1px solid $border-color-grey;
+      border-radius: 10px;
+      height: 700px;
+      width: 100%;
+      background-color: $background-white;
+      display: flex;
+      .convo-list {
+        border-right: 1px solid $border-color-grey;
+        width: 40%;
+        height: 100%;
+      }
+      .chat {
+        width: 60%;
+        height: 100%;
+      }
+    }
+  }
+}

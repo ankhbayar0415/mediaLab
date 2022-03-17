@@ -1,15 +1,18 @@
+import { Link } from "react-router-dom";
 import "../styles/Navigation.scss";
 import logo from "../images/logo.png";
-import searchIcon from "../images/searchIcon.png";
-import Menu from "./Menu.js";
+import { ReactComponent as SearchIcon } from "../images/searchIcon.svg";
+import Menu from "./Menu.jsx";
 
 function Navigation() {
   return (
     <div className="navigation">
       <div className="navContainer">
-        <img className="logo" src={logo} alt="medialab logo" />
+        <Link to="/mainpage">
+          <img className="logo" src={logo} alt="medialab logo" />
+        </Link>
         <div className="search">
-          <img className="searchIcon" src={searchIcon} alt="search icon" />
+          <SearchIcon className="icon" />
           <span className="searchText">Search</span>
         </div>
         <Menu />

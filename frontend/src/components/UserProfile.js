@@ -3,10 +3,12 @@ import Profile from "./Profile";
 import ProfileFeed from "./ProfileFeed";
 import image from "../images/temp.jpg";
 import { ReactComponent as Settings } from "../images/settings.svg";
+import Navigation from "./Navigation";
 
 function UserProfile() {
   return (
     <main>
+      <Navigation />
       <div className="container-userprofile">
         <div className="profileHeader">
           <div className="pPic">
@@ -28,12 +30,12 @@ function UserProfile() {
               <div className="likes">
                 <strong>15</strong> likes
               </div>
-              <a className="followers">
+              <div className="likes">
                 <strong>15</strong> followers
-              </a>
-              <a className="following">
+              </div>
+              <div className="likes">
                 <strong>15</strong> following
-              </a>
+              </div>
             </div>
             <div className="nameBio">
               <div className="fullName">Ankhbayar Enkhlkhagva</div>

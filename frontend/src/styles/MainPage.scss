@@ -14,13 +14,16 @@ main {
 
 a {
   text-decoration: none;
-  color: $link-color;
+  color: $link-text-color;
   font-size: 1em;
   font-weight: 500;
 }
 
 @media only screen and (max-width: 1024px) {
-  main .container {
+  main .container-mainpage {
     justify-content: center !important;
+  }
+  .cards {
+    margin: 0 auto !important;
   }
 }
