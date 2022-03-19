@@ -1,82 +1,49 @@
+//Express related dependencies
 const express = require("express");
-const app = express();
 const cors = require("cors");
+const bodyParser = require("body-parser");
+const busboy = require("connect-busboy");
+const morgan = require("morgan");
 
-const mysql = require("mysql");
-const bcrypt = require("bcryptjs");
+//Router modules
+const router = require("./router/router");
 
+//Database
+const mysql = require("mysql2");
+
+//General dependencies
+const config = require("./config");
+const port = process.env.PORT || config.port.development;
 const corsOptions = {
   origin: true,
   credentials: true,
 };
 
-const cookieParser = require("cookie-parser");
-const { createTokens, validateToken } = require("./JWT");
+//Start express app
+const app = express();
 
-app.use(express.json());
-app.use(cookieParser());
+//Connect to database
+const db = mysql.createPool({
+  user: config.database.mysql.user,
+  host: config.database.mysql.host,
+  password: config.database.mysql.password,
+  database: config.database.mysql.database,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+});
+
+//Express configurations
+app.use(morgan("dev"));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(busboy());
 app.use(cors(corsOptions));
 
-const db = mysql.createConnection({
-  user: "root",
-  host: "localhost",
-  password: "",
-  database: "medialab",
-});
+//Import router module
+app.use("/", router);
 
-app.post("/register", (req, res) => {
-  const { username, password, useremail, fullname } = req.body;
-
-  bcrypt.hash(password, 10).then((hash) => {
-    db.query(
-      "INSERT INTO users (username, password, useremail, fullname) VALUES (? , ?, ?, ?)",
-      [username, hash, useremail, fullname],
-      (err) => {
-        if (err) {
-          err.sqlMessage = err.sqlMessage.split(" ").pop();
-          if (err.sqlMessage === "'username'") {
-            res.send({ message: "Username already exists." });
-          } else {
-            res.send({
-              message: "There is an account associated with your email.",
-            });
-          }
-        } else {
-          res.send({ message: "Registarion succesfull" });
-        }
-      }
-    );
-  });
-});
-
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-
-  db.query(
-    "SELECT * FROM users WHERE username = ?",
-    [username],
-    (err, rows) => {
-      if (err) {
-        res.send({ err: err });
-      }
-      if (rows.length && bcrypt.compareSync(password, rows[0].password)) {
-        const accessToken = createTokens(rows[0]);
-        res.cookie("access-token", accessToken, {
-          maxAge: 86400000,
-          httpOnly: true,
-        });
-        res.send({ message: "Logged In" });
-      } else {
-        res.send({ message: "Wrong username/password" });
-      }
-    }
-  );
-});
-
-app.get("/mainpage/profile", validateToken, (req, res) => {
-  res.json("mainpage");
-});
-
-app.listen(3001, () => {
-  console.log("Server running...");
+//Start listening for requests
+app.listen(port, () => {
+  console.log(`Listening on port: ${port}`);
 });
