@@ -10,7 +10,7 @@ const User = {
     return new Promise(async function (resolve, reject) {
       try {
         const [rows, fields] = await db.query(
-          "SELECT id, username, added FROM `user`"
+          "SELECT id, username, email, added FROM `user`"
         );
         resolve(rows, fields);
       } catch (error) {
@@ -103,6 +103,12 @@ const User = {
         }
         if (data.email) {
           editedUser.email = data.email;
+        }
+        if (data.fullname) {
+          editedUser.fullname = data.fullname;
+        }
+        if (data.bio) {
+          editedUser.bio = data.bio;
         }
         if (data.password) {
           editedUser.password = await self.hash(data.password);

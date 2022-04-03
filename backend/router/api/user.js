@@ -1,5 +1,4 @@
 // User API stuff
-console.log("Hello from api user.js");
 const express = require("express");
 const router = express.Router();
 
@@ -8,6 +7,7 @@ const Post = require("../../controllers/Post");
 
 const auth = require("../utilities/authMiddleware");
 
+// get list of all users from /api/user
 router.get("/", function (req, res) {
   User.get()
     .then(function (data, err) {
@@ -21,6 +21,7 @@ router.get("/", function (req, res) {
     });
 });
 
+// register new user ADMIN TOOL
 router.post("/", auth.isAdmin, function (req, res) {
   User.save(req.body)
     .then(function (data) {
@@ -31,6 +32,7 @@ router.post("/", auth.isAdmin, function (req, res) {
     });
 });
 
+// get user by id
 router.get("/:id", function (req, res) {
   Promise.all([
     User.getById(req.params.id),
@@ -47,6 +49,7 @@ router.get("/:id", function (req, res) {
     });
 });
 
+// modify user account
 router.put("/:id", auth.isLoggedIn, function (req, res) {
   if (req.user.id == req.params.id || req.user.admin) {
     if (!req.user.admin) {
@@ -75,6 +78,7 @@ router.put("/:id", auth.isLoggedIn, function (req, res) {
   }
 });
 
+// delete user by id
 router.delete("/:id", auth.isLoggedIn, function (req, res) {
   if (req.user.id == req.params.id || req.user.admin) {
     User.deleteById(req.params.id)
@@ -94,6 +98,7 @@ router.delete("/:id", auth.isLoggedIn, function (req, res) {
   }
 });
 
+// get followers using user_id
 router.get("/:id/followers", function (req, res) {
   // TODO: fix this
   User.getFollowersById(req.params.id)
@@ -106,6 +111,7 @@ router.get("/:id/followers", function (req, res) {
     });
 });
 
+// get following users using user_id
 router.get("/:id/following", function (req, res) {
   // TODO: fix this
   User.getFollowingById(req.params.id)
@@ -118,6 +124,7 @@ router.get("/:id/following", function (req, res) {
     });
 });
 
+// follow user using their id
 router.post("/:id/follow", auth.isLoggedIn, function (req, res) {
   User.follow(req.user.id, req.params.id)
     .then((results, fields) => {
