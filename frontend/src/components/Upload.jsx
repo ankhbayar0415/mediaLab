@@ -16,18 +16,14 @@ export default class Upload extends Component {
         description: "Description",
         username: "preview",
         id: 0,
-        likes: "xx",
+        likes: 999,
       },
     };
     this.fileInput = React.createRef();
   }
   render() {
     return (
-      <form
-        className="uploadForm"
-        encType="multipart/form-data"
-        onSubmit={this.handleSubmit}
-      >
+      <form className="uploadForm" onSubmit={this.handleSubmit}>
         <h3>Upload an image so all you followers can see it!</h3>
         <textarea
           type="textarea"
@@ -66,8 +62,7 @@ export default class Upload extends Component {
   };
   handleChange = (e) => {
     const name = e.target.name;
-    const value =
-      e.target.type === "checkbox" ? e.target.checked : e.target.value;
+    const value = e.target.value;
     const newPreviewPost = Object.assign({}, this.state.previewPost, {
       [name]: value,
     });
@@ -83,6 +78,7 @@ export default class Upload extends Component {
     const formData = new FormData();
     formData.append("description", this.state.description);
     formData.append("image", this.fileInput.current.files[0]);
+
     console.log(formData);
 
     fetch("http://localhost:3001/api/post", {

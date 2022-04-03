@@ -40,6 +40,7 @@ router.get("/:id", function (req, res) {
 
 router.post("/", auth.isLoggedIn, function (req, res) {
   req.pipe(req.busboy); // Pipe the request into busboy
+
   // All files and fields will enter here
   const result = {
     files: [],
@@ -50,16 +51,18 @@ router.post("/", auth.isLoggedIn, function (req, res) {
   req.busboy.on(
     "file",
     function (fieldname, file, filename, encoding, mimetype) {
-      console.log(
-        "File [" +
-          fieldname +
-          "]: filename: " +
-          filename +
-          ", encoding: " +
-          encoding +
-          ", mimetype: " +
-          mimetype
-      );
+      if (fieldname) {
+        console.log(
+          "File [" +
+            fieldname.data +
+            "]: filename: " +
+            filename +
+            ", encoding: " +
+            encoding +
+            ", mimetype: " +
+            mimetype
+        );
+      }
       ++files;
       const tmp = {
         file: [],
