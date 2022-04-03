@@ -23,7 +23,7 @@ export default class Login extends Component {
 
   render() {
     if (this.state.toDashboard) {
-      return <Redirect to="/"></Redirect>;
+      return <Redirect to="/index"></Redirect>;
     } else {
       return (
         <div className="login">

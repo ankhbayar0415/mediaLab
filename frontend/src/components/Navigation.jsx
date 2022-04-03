@@ -27,7 +27,7 @@ class Navigation extends Component {
         {(user) => (
           <div className="navigation">
             <div className="navContainer">
-              <Link to="/">
+              <Link to="/index">
                 <img className="logo" src={logo} alt="medialab logo" />
               </Link>
               {user.isLoggedIn ? (
@@ -37,7 +37,7 @@ class Navigation extends Component {
                     <span className="searchText">Search</span>
                   </div>
                   <div className="menu">
-                    <Link to="/">
+                    <Link to="/index">
                       <Home className="icon" />
                     </Link>
                     <Link to="/inbox">
@@ -55,7 +55,7 @@ class Navigation extends Component {
                     <Link to={"/user/" + user.id}>
                       <ProfileIcon iconSize="small" image={image} />
                     </Link>
-                    <Link to={"/"}>
+                    <Link to={"/signin"}>
                       <Logout className="logouticon" onClick={auth.logout} />
                     </Link>
                   </div>
