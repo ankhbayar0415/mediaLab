@@ -14,9 +14,7 @@ function Profile(props) {
     image,
   } = props;
 
-  let accountName = username
-    ? username
-    : users[Math.floor(Math.random() * users.length)].username;
+  let accountName = username;
 
   return (
     <div className="profile">

@@ -4,12 +4,11 @@
   display: flex;
   flex-direction: column;
   .signUpMenu {
-    background-color: $background-white;
+    background-color: $background-grey;
     width: 342px;
     margin-left: 30px;
     border: 1px solid $border-color-grey;
     justify-content: center;
-    height: 440px;
     .logo {
       margin: 30px auto;
       display: block;
@@ -36,6 +35,7 @@
         height: 30px;
         width: 263px;
         margin: 10px auto;
+        margin-bottom: 20px;
         background: linear-gradient(
           200deg,
           $gradient-one 25%,
@@ -51,10 +51,30 @@
           cursor: pointer;
         }
       }
+      .validation {
+        margin: 5px auto;
+        border: 0;
+        border-radius: 4px;
+        background-color: $link-text-color;
+        opacity: 0.7;
+        color: white;
+        width: 263px;
+        padding: 8px 0;
+        font-size: 14px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .ic {
+          margin-left: 10px;
+        }
+        .val {
+          text-align: center;
+        }
+      }
     }
   }
   .signUp {
-    background-color: $background-white;
+    background-color: $background-grey;
     width: 342px;
     margin-top: 20px;
     margin-left: 30px;

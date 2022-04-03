@@ -36,7 +36,7 @@ router.post("/local-login", function (req, res) {
         if (err && err.message) {
           res.status(400).send(err.message);
         } else if (!user) {
-          res.status(400).send("Could not find user.");
+          res.status(400).send("Could not find user");
         } else {
           res.status(500).send(err);
         }
@@ -52,6 +52,7 @@ router.post("/local-login", function (req, res) {
 router.post("/local-signup", function (req, res) {
   User.save(req.body)
     .then(async (user) => {
+      console.log(user);
       const token = await jwtSign(user);
       res.send(token);
     })
@@ -62,7 +63,6 @@ router.post("/local-signup", function (req, res) {
           .send("There is already an user with that username or email.");
       }
       console.log(err);
-      res.status(500).send(err);
     });
 });
 

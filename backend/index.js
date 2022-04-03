@@ -1,8 +1,9 @@
 //Express related dependencies
 const express = require("express");
-const cors = require("cors");
 const bodyParser = require("body-parser");
 const busboy = require("connect-busboy");
+
+const cors = require("cors");
 const morgan = require("morgan");
 
 //Router modules

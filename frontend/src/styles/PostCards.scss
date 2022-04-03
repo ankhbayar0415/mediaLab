@@ -1,21 +1,19 @@
 @import "./variables";
 
-.card {
+.postCard {
   border: 1px solid $border-color-grey;
   background-color: $background-grey;
   margin-bottom: 3.5em;
   border-radius: 3px;
 
-  header {
+  .postCard-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0.75em;
-
     .profile {
       margin-bottom: 0;
     }
-
     .cardButton {
       height: 30px;
 
@@ -32,7 +30,9 @@
 
   .likedBy {
     display: flex;
+    flex-direction: column;
     padding-left: 0.5em;
+    margin-bottom: 0.5em;
 
     span {
       color: white;

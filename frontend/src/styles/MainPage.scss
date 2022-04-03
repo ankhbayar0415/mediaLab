@@ -9,6 +9,9 @@ main {
     justify-content: left;
     margin: 0 auto;
     max-width: 1000px;
+    .cards {
+      width: 600px;
+    }
   }
 }
 
@@ -25,5 +28,11 @@ a {
   }
   .cards {
     margin: 0 auto !important;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .cards {
+    width: 100% !important;
   }
 }

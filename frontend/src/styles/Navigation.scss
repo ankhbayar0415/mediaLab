@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   z-index: 2;
-  background-color: $background-white;
+  background-color: $background-grey;
   width: 100%;
   border-bottom: 1px solid $border-color-grey;
   height: 60px;
@@ -28,6 +28,10 @@
     }
     .icon {
       padding: 0 5px;
+    }
+    .logouticon {
+      margin-left: 15px;
+      margin-top: -3px;
     }
     .search {
       border: 1px solid $border-color-grey;
