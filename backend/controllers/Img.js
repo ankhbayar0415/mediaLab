@@ -47,7 +47,6 @@ const Img = {
         const [rows, fields] = await db.query("INSERT INTO `img` SET ?", {
           img: data.file,
           size: data.size,
-          filename: data.filename,
           encoding: data.encoding,
           mimetype: data.mimetype,
         });

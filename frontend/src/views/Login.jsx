@@ -16,7 +16,8 @@ export default class Login extends Component {
     this.state = {
       username: "",
       password: "",
-      error: null,
+      errors: {},
+      sqlerror: null,
       toDashboard: false,
     };
   }
@@ -40,6 +41,7 @@ export default class Login extends Component {
                     value={this.state.username}
                     onChange={this.handleChange}
                   />
+                  <div className="errorMsg">{this.state.errors.username}</div>
                   <input
                     type="password"
                     name="password"
@@ -47,11 +49,12 @@ export default class Login extends Component {
                     value={this.state.password}
                     onChange={this.handleChange}
                   />
-                  {this.state.error && (
+                  <div className="errorMsg">{this.state.errors.password}</div>
+                  {this.state.sqlerror && (
                     <div className="validation">
                       <Warning />
                       &nbsp;&nbsp;
-                      {this.state.error}
+                      {this.state.sqlerror}
                     </div>
                   )}
                   <button className="loginButton" onClick={this.handleSubmit}>
@@ -82,22 +85,23 @@ export default class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-
-    auth
-      .login(this.state.username, this.state.password)
-      .then((token) => {
-        console.log(token);
-        this.setState({
-          error: false,
-          toDashboard: true,
+    if (this.validateForm()) {
+      auth
+        .login(this.state.username, this.state.password)
+        .then((token) => {
+          console.log(token);
+          this.setState({
+            sqlerror: false,
+            toDashboard: true,
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+          this.setState({
+            sqlerror: err,
+          });
         });
-      })
-      .catch((err) => {
-        console.log(err);
-        this.setState({
-          error: err,
-        });
-      });
+    }
   };
 
   handleChange = (e) => {
@@ -107,4 +111,24 @@ export default class Login extends Component {
       [name]: value,
     });
   };
+
+  validateForm() {
+    let errors = {};
+    let formIsValid = true;
+
+    if (!this.state.username) {
+      formIsValid = false;
+      errors["username"] = "*Please enter your username.";
+    }
+
+    if (!this.state.password) {
+      formIsValid = false;
+      errors["password"] = "*Please enter your password.";
+    }
+
+    this.setState({
+      errors: errors,
+    });
+    return formIsValid;
+  }
 }

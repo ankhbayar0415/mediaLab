@@ -10,7 +10,6 @@ import "../styles/UserProfile.scss";
 import image from "../images/temp.jpg";
 import { ReactComponent as Settings } from "../images/settings.svg";
 import { ReactComponent as PostsGrid } from "../images/PostsGrid.svg";
-import { ReactComponent as Videos } from "../images/videos.svg";
 import { ReactComponent as Bookmark } from "../images/bookmark.svg";
 import { ReactComponent as Tagged } from "../images/tagged.svg";
 
@@ -91,10 +90,6 @@ export default class UserProfile extends Component {
             <Link to={"/user/" + user.id} className="options">
               <PostsGrid className="headerIcon" />
               POSTS
-            </Link>
-            <Link to={"/user/" + user.id} className="options">
-              <Videos className="headerIcon" />
-              VIDEOS
             </Link>
             <Link to={"/user/" + user.id} className="options">
               <Bookmark className="headerIcon" />

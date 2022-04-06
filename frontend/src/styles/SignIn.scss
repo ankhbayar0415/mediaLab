@@ -68,6 +68,12 @@
           cursor: pointer;
         }
       }
+      .errorMsg {
+        color: $link-text-color;
+        margin-bottom: 3px;
+        margin-left: 35px;
+        font-size: 12px;
+      }
       .validation {
         margin: 5px auto;
         border: 0;

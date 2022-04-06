@@ -3,6 +3,7 @@
 .listSignUp {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   .signUpMenu {
     background-color: $background-grey;
     width: 342px;
@@ -50,6 +51,12 @@
         &:hover {
           cursor: pointer;
         }
+      }
+      .errorMsg {
+        color: $link-text-color;
+        margin-bottom: 3px;
+        margin-left: 35px;
+        font-size: 12px;
       }
       .validation {
         margin: 5px auto;

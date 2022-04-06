@@ -26,7 +26,7 @@ const User = {
     return new Promise(async function (resolve, reject) {
       try {
         const sql = `
-                    SELECT u.id, u.username, u.added, u.fullname, u.bio,
+                    SELECT u.id, u.username, u.added, u.fullname, u.img_id, u.bio,
                         COUNT(DISTINCT ufollowing.user_id) AS following_num,
                         COUNT(DISTINCT ufollowers.follow_id) AS followers_num,
                         COUNT(DISTINCT p.id) AS posts_num

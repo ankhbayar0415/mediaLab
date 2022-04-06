@@ -1,4 +1,11 @@
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
+import Auth from "../utils/AuthHelper";
+
 import "../styles/ProfileIcon.scss";
+
+const auth = new Auth();
 
 function ProfileIcon(props) {
   const { iconSize, storyBorder, image } = props;

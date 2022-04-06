@@ -14,7 +14,7 @@ import { ReactComponent as Logout } from "../images/logout.svg";
 
 import image from "../images/temp.jpg";
 
-import ProfileIcon from "./ProfileIcon.js";
+import ProfileIcon from "./ProfileIcon";
 import { UserConsumer } from "../context/UserContext";
 import Auth from "../utils/AuthHelper";
 
@@ -54,6 +54,7 @@ class Navigation extends Component {
                     </Link>
                     <Link to={"/user/" + user.id}>
                       <ProfileIcon iconSize="small" image={image} />
+                      {/* <ProfileIcon iconSize="small" data={user} key={user.id} /> */}
                     </Link>
                     <Link to={"/signin"}>
                       <Logout className="logouticon" onClick={auth.logout} />

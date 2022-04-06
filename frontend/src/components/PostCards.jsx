@@ -1,8 +1,6 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 import Profile from "./Profile";
-import Comment from "./Comment";
 import "../styles/CardMenu.scss";
 import { ReactComponent as Inbox } from "../images/inbox.svg";
 import { ReactComponent as Comments } from "../images/comments.svg";
